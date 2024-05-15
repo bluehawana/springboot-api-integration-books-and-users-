@@ -60,10 +60,9 @@ public class BookController {
         // TODO: Skriv din kod här
         try {
             bookService.deleteBook(id);
+            return ResponseEntity.ok().build(); // Return 200 OK if no exception is thrown
         } catch (RuntimeException e) {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.noContent().build(); // Return 204 NO_CONTENT when an exception is caught
         }
-        return ResponseEntity.ok().build();
     }
-
 }
