@@ -3,6 +3,7 @@ package se.dsve.book.service;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import se.dsve.book.exceptions.ResourceNotFoundException;
 import se.dsve.book.model.Book;
@@ -67,7 +68,6 @@ public class BookService {
     public void deleteBook(Long id) {
         // TODO: Skriv din kod här
         bookRepository.deleteById(id);
-
     }
 
     private Book getBookOrFail(Long id) {
