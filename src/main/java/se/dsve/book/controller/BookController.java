@@ -28,30 +28,37 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks() {
         // TODO: Skriv din kod här
-        return null;
+        return bookService.getAllBooks() ;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id) {
         // TODO: Skriv din kod här
-        return null;
-    }
+        Book book = bookService.getBookById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + id));
+        return ResponseEntity.ok(book);
+            }
 
     @PostMapping
     public Book addBook(@RequestBody Book book) {
         // TODO: Skriv din kod här
-        return null;
+        return bookService.addBook(book);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
         // TODO: Skriv din kod här
-        return null;
+     Book updateBook = bookService.updateBook(id, bookDetails);
+     if (updateBook == null) {
+         throw new ResourceNotFoundException("Book not found with id " + id);
+     }
+        return ResponseEntity.ok(updateBook);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         // TODO: Skriv din kod här
-        return null;
+        bookService.deleteBook(id);
+        return ResponseEntity.ok().build();
     }
 }
