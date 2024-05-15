@@ -66,7 +66,6 @@ public class BookService {
 
     public void deleteBook(Long id) {
         // TODO: Skriv din kod här
-        Book book = getBookOrFail(id);
         bookRepository.deleteById(id);
 
     }
