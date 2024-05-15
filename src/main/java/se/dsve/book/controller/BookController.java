@@ -58,11 +58,7 @@ public class BookController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         // TODO: Skriv din kod här
-        try {
-            bookService.deleteBook(id);
-            return ResponseEntity.ok().build(); // Return 200 OK if no exception is thrown
-        } catch (RuntimeException e) {
-            return ResponseEntity.noContent().build(); // Return 204 NO_CONTENT when an exception is caught
-        }
+        bookService.deleteBook(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -30,13 +30,13 @@ public class BookService {
 
     @PostConstruct
     public void init() {
-        List<Book>  books = Arrays.asList(
-                new Book ("The Great Gatsby", "F. Scott Fitzgerald",    "9780743273565"),
-                new Book ("To Kill a Mockingbird", "Harper Lee",   "9780061120084"),
-                new Book ("1984", "George Orwell",   "9780451524935"),
-                new Book ("Pride and Prejudice", "Jane Austen",   "9780679783268"),
-                new Book ("The Catcher in the Rye", "J.D. Salinger",   "9780316769488"),
-                new Book ("The Hobbit", "J.R.R. Tolkien",   "9780345534835")
+        List<Book> books = Arrays.asList(
+                new Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565"),
+                new Book("To Kill a Mockingbird", "Harper Lee", "9780061120084"),
+                new Book("1984", "George Orwell", "9780451524935"),
+                new Book("Pride and Prejudice", "Jane Austen", "9780679783268"),
+                new Book("The Catcher in the Rye", "J.D. Salinger", "9780316769488"),
+                new Book("The Hobbit", "J.R.R. Tolkien", "9780345534835")
         );
         bookRepository.saveAll(books);
     }
@@ -69,7 +69,6 @@ public class BookService {
         // TODO: Skriv din kod här
         Book book = getBookOrFail(id);
         bookRepository.delete(book);
-        throw new RuntimeException("Book with id " + id + " has been deleted successfully.");
     }
 
 
