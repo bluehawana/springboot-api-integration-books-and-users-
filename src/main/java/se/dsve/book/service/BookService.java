@@ -67,8 +67,11 @@ public class BookService {
 
     public void deleteBook(Long id) {
         // TODO: Skriv din kod här
-        bookRepository.deleteById(id);
+        Book book = getBookOrFail(id);
+        bookRepository.delete(book);
+        throw new RuntimeException("Book with id " + id + " has been deleted successfully.");
     }
+
 
     private Book getBookOrFail(Long id) {
         // TODO: Skriv din kod här
